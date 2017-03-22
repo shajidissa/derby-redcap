@@ -1,0 +1,14 @@
+#------------------------------------------------------------------------------#
+#                            OFFICIAL UBUNTU REPOS                             #
+#------------------------------------------------------------------------------#
+
+
+###### Ubuntu Main Repos
+deb https://www.mirrorservice.org/sites/archive.ubuntu.com/ubuntu/ xenial main 
+deb-src https://www.mirrorservice.org/sites/archive.ubuntu.com/ubuntu/ xenial main 
+
+###### Ubuntu Update Repos
+deb https://www.mirrorservice.org/sites/archive.ubuntu.com/ubuntu/ xenial-security main 
+deb https://www.mirrorservice.org/sites/archive.ubuntu.com/ubuntu/ xenial-updates main 
+deb-src https://www.mirrorservice.org/sites/archive.ubuntu.com/ubuntu/ xenial-security main 
+deb-src https://www.mirrorservice.org/sites/archive.ubuntu.com/ubuntu/ xenial-updates main 
