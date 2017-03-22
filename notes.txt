@@ -1,0 +1,154 @@
+Test
+
+sudo vi /etc/environment
+
+http_proxy="http://shajid.issa:Friday16@192.168.12.212:8080"
+https_proxy="http://shajid.issa:Friday16@192.168.12.212:8080"
+ftp_proxy="http://shajid.issa:Friday16@192.168.12.212:8080"
+no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+HTTP_PROXY="http://shajid.issa:Friday16@192.168.12.212:8080"
+HTTPS_PROXY="http://shajid.issa:Friday16@192.168.12.212:8080"
+FTP_PROXY="http://shajid.issa:Friday16@192.168.12.212:8080"
+NO_PROXY="localhost,127.0.0.1,localaddress,.localdomain.com"
+
+sudo vi /etc/apt/apt.conf
+
+9447
+
+wget --proxy=off http://www.google.com/
+
+sudo vi /etc/wgetrc
+
+export http_proxy=http://derbyhospitals.local\shajid.issa:Friday16@192.168.12.212:8080/
+
+curl -x http://192.168.12.212:8080 --proxy-user shajid.issa:Friday16 -L http://www.google.com
+
+ifconfig -a
+
+
+#------------------------------------------------------------------------------#
+#                            OFFICIAL UBUNTU REPOS                             #
+#------------------------------------------------------------------------------#
+
+
+###### Ubuntu Main Repos
+deb http://uk.archive.ubuntu.com/ubuntu/ xenial main 
+deb-src http://uk.archive.ubuntu.com/ubuntu/ xenial main 
+
+###### Ubuntu Update Repos
+deb http://uk.archive.ubuntu.com/ubuntu/ xenial-security main 
+deb http://uk.archive.ubuntu.com/ubuntu/ xenial-updates main 
+deb-src http://uk.archive.ubuntu.com/ubuntu/ xenial-security main 
+deb-src http://uk.archive.ubuntu.com/ubuntu/ xenial-updates main 
+
+
+redcap@redcap:~$ ifconfig -a
+docker0   Link encap:Ethernet  HWaddr 02:42:ef:d0:d3:f1
+          inet addr:172.17.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
+          inet6 addr: fe80::42:efff:fed0:d3f1/64 Scope:Link
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:2 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:140 (140.0 B)  TX bytes:258 (258.0 B)
+
+eth0      Link encap:Ethernet  HWaddr 00:15:5d:1e:d8:09
+          inet addr:192.168.165.146  Bcast:192.168.165.255  Mask:255.255.255.0
+          inet6 addr: fe80::215:5dff:fe1e:d809/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1419433 errors:0 dropped:105325 overruns:0 frame:0
+          TX packets:16677 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:171166341 (171.1 MB)  TX bytes:1288923 (1.2 MB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:160 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:160 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1
+          RX bytes:11840 (11.8 KB)  TX bytes:11840 (11.8 KB)
+
+
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto eth0
+iface eth0 inet static
+        address 192.168.165.146
+        netmask 255.255.255.0
+        network 192.168.165.0
+        broadcast 192.168.165.255
+        gateway 192.168.165.1
+        # dns-* options are implemented by the resolvconf package, if installed
+        dns-nameservers 192.168.12.178
+        dns-search derbyhospitals.local
+~
+~
+~
+~
+
+
+
+
+
+redcap.derbyhospitals.local
+
+INSERT INTO mysql.user ( Host , User , Select_priv ,
+    Insert_priv , Update_priv , Delete_priv , Create_priv , Drop_priv , Reload_priv , 
+    Shutdown_priv , Process_priv , File_priv , Grant_priv , References_priv , 
+    Index_priv , Alter_priv , Show_db_priv , Super_priv , Create_tmp_table_priv , 
+    Lock_tables_priv , Execute_priv , Repl_slave_priv , Repl_client_priv , 
+    Create_view_priv , Show_view_priv , Create_routine_priv , Alter_routine_priv , 
+    Create_user_priv , ssl_type , max_questions , max_updates , max_connections , 
+    max_user_connections, ssl_cipher, x509_issuer, x509_subject) VALUES ( '%', 'root', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y',
+    'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y','Y', 'Y', 'Y', 'Y', 'Y',
+    'Y', 'Y', 'Y', 'Y', '', '0', '0', '0', '0', '', '', '');
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root';
+
+http://192.168.165.146/redcap/redcap_v6.17.0/install.php
+
+apt-get -y install apache2 php7.0  php7.0-mysql  php7.0-curl  php7.0-mcrypt  php7.0-json libapache2-mod-php7.0  php7.0-zip php7.0-gd php-pear php-auth curl phpmyadmin libpcre3-dev wget git vim unzip mysql-server ntp cron supervisor ssmtp && \
+#    apt-get clean && \
+
+http://192.168.165.146/redcap/install.php
+http://192.168.165.146/redcap-test/install.php
+http://192.168.165.146/redcap/testemail.php
+
+
+sudo docker build -t derby/redcap_fresh:v7.1.2 .
+sudo docker run -itd -p 80:80 -v /share:/share/ derby/redcap_fresh:v7.1.2
+sudo docker exec -i -t 89ce55e5550a /bin/bash
+
+/etc/init.d/apache2 restart
+
+http://192.168.165.146/redcap/index.php?action=passwordreset&u=c2k4NA%3D%3D&k=f445b57ac3ea82b9c5d867edfc896c8e0d8a3636d132661c409e221354a5cc068d18e7697a6c74865b00fc5249169ce975524608301dc1dba34f2ff320b4e411
+
+
+vi /etc/ssmtp/ssmtp.conf
+root=postmaster
+mailhub=192.168.164.85:25
+UseSTARTTLS=YES
+
+vi /etc/ssmtp/revaliases
+root:me@192.168.164.85:25
+
+vi /var/log/apache2/error.log
+
+/8etc/init.d/apache2 restart
+
+si84
+H****h999
+
+redcap/diagnose
+
