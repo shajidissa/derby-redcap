@@ -89,9 +89,11 @@ RUN sed -i.bak 's/upload_max_filesize = 2M/upload_max_filesize = 32M/g' /etc/php
 RUN sed -i.bak 's/post_max_size = 8M/post_max_size = 32M/g' /etc/php/7.0/apache2/php.ini
 RUN sed -i.bak 's/; max_input_vars = 1000/max_input_vars = 10000/g' /etc/php/7.0/apache2/php.ini
 RUN sed -i.bak 's/SMTP = localhost/SMTP = 192.168.164.85/g' /etc/php/7.0/apache2/php.ini
+RUN sed -i.bak 's/;sendmail_path =/sendmail_path = \x27\/usr\/sbin\/sendmail -t -i -freply@derbyhospitals.nhs.uk -Freply\x27/g' /etc/php/7.0/apache2/php.ini
+RUN sed -i.bak 's/;mail.log = syslog/mail.log = syslog/g' /etc/php/7.0/apache2/php.ini
 
-RUN sed -i.bak 's/mailhub=mail/mailhub=192.168.164.85:25\\\nUseSTARTTLS=YES/g' /etc/ssmtp/ssmtp.conf
-
+RUN sed -i.bak 's/mailhub=mail/mailhub=192.168.164.85:25\\\nUseSTARTTLS=YES\nFromLineOverride=YES/g' /etc/ssmtp/ssmtp.conf
+RUN sed -i.bak 's/hostname=e7eddde82bec/hostname=redcap/g' /etc/ssmtp/ssmtp.conf
 RUN sed -i.bak 's/# sSMTP aliases/root:me@192.168.164.85:25/g' /etc/ssmtp/revaliases
 
 # supervisord config file
