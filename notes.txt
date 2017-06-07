@@ -2,13 +2,13 @@ Test
 
 sudo vi /etc/environment
 
-http_proxy="http://shajid.issa:Friday16@192.168.12.212:8080"
-https_proxy="http://shajid.issa:Friday16@192.168.12.212:8080"
-ftp_proxy="http://shajid.issa:Friday16@192.168.12.212:8080"
+http_proxy="http://shajid.issa:XXXX@192.168.12.212:8080"
+https_proxy="http://shajid.issa:xxxx@192.168.12.212:8080"
+ftp_proxy="http://shajid.issa:xxx@192.168.12.212:8080"
 no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-HTTP_PROXY="http://shajid.issa:Friday16@192.168.12.212:8080"
-HTTPS_PROXY="http://shajid.issa:Friday16@192.168.12.212:8080"
-FTP_PROXY="http://shajid.issa:Friday16@192.168.12.212:8080"
+HTTP_PROXY="http://shajid.issa:xxx@192.168.12.212:8080"
+HTTPS_PROXY="http://shajid.issa:xx@192.168.12.212:8080"
+FTP_PROXY="http://shajid.issa:xx@192.168.12.212:8080"
 NO_PROXY="localhost,127.0.0.1,localaddress,.localdomain.com"
 
 sudo vi /etc/apt/apt.conf
@@ -19,9 +19,9 @@ wget --proxy=off http://www.google.com/
 
 sudo vi /etc/wgetrc
 
-export http_proxy=http://derbyhospitals.local\shajid.issa:Friday16@192.168.12.212:8080/
+export http_proxy=http://derbyhospitals.local\shajid.issa:xxx@192.168.12.212:8080/
 
-curl -x http://192.168.12.212:8080 --proxy-user shajid.issa:Friday16 -L http://www.google.com
+curl -x http://192.168.12.212:8080 --proxy-user shajid.issa:xxx -L http://www.google.com
 
 ifconfig -a
 
@@ -148,7 +148,7 @@ vi /var/log/apache2/error.log
 /8etc/init.d/apache2 restart
 
 si84
-H****h999
+*****h999
 
 redcap/diagnose
 
